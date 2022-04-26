@@ -11,14 +11,15 @@ const billStringField = document.querySelector(".billString");
 //  * check if it is a call or an sms and add the right amount to the overall total
 //  * once done looping over all the entries - display the total onto the screen in the billTotal element
 
+var total;
+
 function totalPhoneBill(callsAndSms) {
 	var callsArr = callsAndSms.split(',');
   	var countCalls = 0;
   	var countSms = 0;
-  	var total;
   
   for(var i = 0; i < callsArr.length; i++) {
-  	var newArr = callsArr[i].trim();
+  	var newArr = callsArr[i].trim().toLowerCase();
     if(newArr == 'call') {
     	countCalls += 2.75;
     }
@@ -27,16 +28,25 @@ function totalPhoneBill(callsAndSms) {
     }
   }
   total = countCalls + countSms;
-  console.log(total)
   return total.toFixed(2); 
 }
-
-function calculateBtnClicked(){
-
+function calculateBtnClicked() {
     var billString = billStringField.value;
     var roundedBillTotal = totalPhoneBill(billString);
+    if(roundedBillTotal < 30){
+      billTotalElement.classList.remove("danger");
+      billTotalElement.classList.remove("warning")
+    }
+    else if (roundedBillTotal >= 50){
+        billTotalElement.classList.add("danger");
+        billTotalElement.classList.remove("warning")
+    }
+    else if (roundedBillTotal >= 30){
+        billTotalElement.classList.add("warning");
+        billTotalElement.classList.remove("danger")
+
+    }
     billTotalElement.innerHTML = roundedBillTotal;
 }
-
 //link the function to a click event on the calculate button
 calculateBtnElement.addEventListener('click', calculateBtnClicked);
