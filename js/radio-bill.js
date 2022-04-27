@@ -13,7 +13,9 @@ const TotalElement = document.querySelector('.totalTwo')
 // * add the appropriate value to the running total
 // * add nothing for invalid values that is not 'call' or 'sms'.
 // * display the latest total on the screen
-
+callTotalElement.innerHTML = callsTotal.toFixed(2);
+smsTotalElement.innerHTML = smsTotal.toFixed(2);
+TotalElement.innerHTML = totalCost.toFixed(2);
 var callsTotal = 0;
 var smsTotal = 0;
 function radioBillTotal(){
