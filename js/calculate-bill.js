@@ -33,15 +33,15 @@ function calculateBtnClicked() {
     var billString = billStringField.value;
     var roundedBillTotal = totalPhoneBill(billString);
     
-    if(roundedBillTotal < 30){
+    if(roundedBillTotal < 20){
       billTotalElement.classList.remove("danger");
       billTotalElement.classList.remove("warning")
     }
-    else if (roundedBillTotal >= 50){
+    else if (roundedBillTotal >= 30){
         billTotalElement.classList.add("danger");
         billTotalElement.classList.remove("warning")
     }
-    else if (roundedBillTotal >= 30){
+    else if (roundedBillTotal >= 20){
         billTotalElement.classList.add("warning");
         billTotalElement.classList.remove("danger")
 
