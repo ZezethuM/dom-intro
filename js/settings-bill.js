@@ -38,7 +38,6 @@ updateBtn.addEventListener('click', function(){
     smsValue = Number(smsCost.value);
     warningLevelValue = Number(warningLevel.value);
     criticalLevelValue = Number(criticalLevel.value);
-    // totalValue = Number(totalSettings.value);
     colors();
 });
 
