@@ -31,12 +31,17 @@ let smsValue = 0;
 let warningLevelValue = 0;
 let criticalLevelValue = 0;
 
+
 updateBtn.addEventListener('click', function(){
-     callValue = Number(callCost.value);
-     smsValue = Number(smsCost.value);
-     warningLevelValue = Number(warningLevel.value);
-     criticalLevelValue = Number(criticalLevel.value);
+    
+    callValue = Number(callCost.value);
+    smsValue = Number(smsCost.value);
+    warningLevelValue = Number(warningLevel.value);
+    criticalLevelValue = Number(criticalLevel.value);
+    // totalValue = Number(totalSettings.value);
+    colors();
 });
+
 let callTotal = 0;
 let smsTotalValue = 0;
 let totalValue = 0;
@@ -65,19 +70,26 @@ function totalBill(){
     totalValue = callTotal + smsTotalValue;
     totalSettings.innerHTML = totalValue.toFixed(2);
 
-    if(totalValue < warningLevelValue && totalValue < criticalLevelValue){
-        totalSettings.classList.remove("danger");
-        totalSettings.classList.remove("warning");
-    }
-    else if(totalValue >= criticalLevelValue){
-        totalSettings.classList.add("danger");
-        totalSettings.classList.remove("warning");
-
-    }
-    else if(totalValue >= warningLevelValue){
-        totalSettings.classList.add("warning");
-        totalSettings.classList.remove("danger");
-    }
+   colors();
 }
 addToBillBtn.addEventListener('click', totalBill);
 
+function colors(){
+
+    if(totalValue >= criticalLevelValue){
+        totalSettings.classList.add("danger");
+        totalSettings.classList.remove("warning");
+    }
+    else if(totalValue >= warningLevelValue){
+            totalSettings.classList.add("warning");
+            totalSettings.classList.remove("danger");
+    }
+    else if(totalValue < criticalLevelValue){
+        totalSettings.classList.remove("danger");
+    }
+    else if(totalValue < warningLevelValue){
+        totalSettings.classList.remove("warning");
+    }
+
+
+}
