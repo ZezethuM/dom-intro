@@ -27,14 +27,10 @@ function textBillTotal(){
     var billTypeEntered = textboxElem.value.trim().toLowerCase();
     // update the correct total
     if (billTypeEntered === "call"){
-        if(totalsCost < 50){
             callsTtl += 2.75
-        }
     }
     else if (billTypeEntered === "sms"){
-        if(totalsCost < 50){
             smsTtl += 0.75;
-        }
     }
     //update the totals that is displayed on the screen.
     callsTotalElem.innerHTML = callsTtl.toFixed(2);

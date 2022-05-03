@@ -30,14 +30,10 @@ function radioBillTotal(){
 }
     // update the correct total
     if (billItemType === "call"){
-        if(totalCost < 50){
             callsTotal += 2.75
-        }
     }
     else if (billItemType === "sms"){
-        if(totalCost < 50){
             smsTotal += 0.75;
-        }
     }
     //update the totals that is displayed on the screen.
     callTotalElement.innerHTML = callsTotal.toFixed(2);
