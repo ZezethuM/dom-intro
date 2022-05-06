@@ -43,18 +43,7 @@ addToBillBtn.addEventListener('click', totalBill);
 
 function colors(){
 
-    if(billSetting.getTotalCost() >= billSetting.getCriticalLevel()){
-        totalSettings.classList.add("danger");
-        totalSettings.classList.remove("warning");
-    }
-    else if(billSetting.getTotalCost() >= billSetting.getWarningLevel()){
-            totalSettings.classList.add("warning");
-            totalSettings.classList.remove("danger");
-    }
-    else if(billSetting.getTotalCost() < billSetting.getCriticalLevel()){
-        totalSettings.classList.remove("danger");
-    }
-    else if(billSetting.getTotalCost() < billSetting.getWarningLevel()){
-        totalSettings.classList.remove("warning");
-    }
+    totalSettings.classList.remove("warning");
+    totalSettings.classList.remove("critical");
+    totalSettings.classList.add(billSetting.totalLevel())
 }
