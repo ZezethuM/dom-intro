@@ -56,7 +56,7 @@ function settingsBill(){
         return smsCostTotal;
     }
     function stopAddingAtCriticalLevel(){
-        return getTotalCallCost() >= getCriticalLevel();
+        return getTotalCost() >= getCriticalLevel();
     }
     function totalLevel(){
         if(stopAddingAtCriticalLevel()){
